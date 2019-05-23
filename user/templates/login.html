@@ -1,0 +1,13 @@
+<style> h1{display: inline-block}</style>
+<h1>Sign In</h1><h1></h1><a href="../register/">Sign Up</a></h1>
+
+<form action="" method="post">
+    {%csrf_token%}
+    <span>Email Address </span> <input type="text" name="email" id="email" value="{{ form.email.value  }}">
+    <p>{{ form.email.errors }}</p>
+    <br>
+    <span>Password</span> <input type="password" name="password" id="password" value="{{ form.password.value  }}">
+    <p>{{ form.password.errors }}</p>
+    <br>
+    <input type="submit" value="Sign up"><input type="reset" value="Reset">
+</form>

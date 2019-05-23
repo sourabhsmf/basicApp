@@ -1,0 +1,9 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "C:\\Users\\Sourabh\\Documents\\devs\\tictactoe\\db.sqlite3",
+            "dialect": "SQLite",
+            "name": "basicapp"
+        }
+    ]
+}

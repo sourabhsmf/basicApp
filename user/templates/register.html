@@ -1,0 +1,11 @@
+<h1>Sign up </h1>
+
+<form action="" method="post">
+    {%csrf_token%}
+    <span>Email Address </span> <input type="text" name="email" id="email" value="{{ form.email.value  }}">
+    <p>{{ form.email.errors }}</p>
+    <br>
+    <span>Password</span> <input type="password" name="password" id="password" value="{{ form.password.value  }}">
+    <br>
+    <input type="submit" value="Sign In"><input type="reset" value="Reset">
+</form>
