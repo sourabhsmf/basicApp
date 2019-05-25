@@ -9,7 +9,7 @@ class User(models.Model):
     def save(self):
         passwordHasher = Argon2PasswordHasher()
         self.password = passwordHasher.encode(self.password , passwordHasher.salt())
-        super.save()
+        super().save()
 
     def verify_email(self , p):
         try:
