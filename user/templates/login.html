@@ -3,11 +3,11 @@
 
 <form action="" method="post">
     {%csrf_token%}
-    <span>Email Address </span> <input type="text" name="email" id="email" value="{{ form.email.value  }}">
-    <p>{{ form.email.errors }}</p>
+    <span>Email Address </span> <input type="text" name="email" id="email" {% if form.email.value %} value="{{ form.email.value  }}" {% endif %}>
+    {% if form.email.value %}<p>{{ form.email.errors }}</p>{% endif %}
     <br>
-    <span>Password</span> <input type="password" name="password" id="password" value="{{ form.password.value  }}">
-    <p>{{ form.password.errors }}</p>
+    <span>Password</span> <input type="password" name="password" id="password" {% if form.password.value %} value="{{ form.password.value  }}" {% endif %}>
+    {% if form.email.value %}<p>{{ form.password.errors }}</p>{% endif %}
     <br>
     <input type="submit" value="Sign up"><input type="reset" value="Reset">
 </form>
