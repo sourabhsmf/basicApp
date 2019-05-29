@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 from .forms import registrationForm,loginForm
 from .models import User
 # Create your views here.
@@ -21,7 +21,8 @@ def login(request):
             unauthenticatedUser = User(email = form.cleaned_data['email'] , password = form.cleaned_data['password'])
             if unauthenticatedUser.verify_email(User):
                 if unauthenticatedUser.verify_password(User):
-                    return HttpResponse("<h1>Welcome {}</h1>".format(unauthenticatedUser.email))
+                    request.session['user'] = unauthenticatedUser.email
+                    return redirect('/user/home')
                 else:
                     form.add_error('password' , 'Incorrect password')
                     return render(request , 'login.html' , context={'form':form})
@@ -32,3 +33,5 @@ def login(request):
             return render(request , "login.html" , context={'form':form})
     else:
         return render(request , 'login.html')
+def home(request):
+        return render(request , 'home.html' , context={'user' : request.session.get('user')})
